@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:video_player/video_player.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -9,6 +11,10 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
+const String url = "https://vaibhavdlights.github.io/val-api/val-api.json";
+List? data;
+var isLoaded = false;
+
 class _HomePageState extends State<HomePage> {
   // ignore: unused_field
   late VideoPlayerController _controller;
@@ -16,6 +22,8 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    getJsonData();
+
     _controller = VideoPlayerController.asset("assets/videos/main.mkv")
       ..initialize().then((_) {
         _controller.play();
@@ -23,6 +31,18 @@ class _HomePageState extends State<HomePage> {
         _controller.setVolume(0);
         setState(() {});
       });
+  }
+
+  Future<String> getJsonData() async {
+    // ignore: unused_local_variable
+    var response = await http.get(Uri.parse(url));
+    // print(response.body);
+    setState(() {
+      var convertDataToJson = jsonDecode(response.body);
+      data = convertDataToJson['data'];
+      isLoaded = true;
+    });
+    return "Success";
   }
 
   @override
@@ -36,15 +56,27 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: const Color(0xffece8e1),
       appBar: myAppBar(),
-      body: myBody(_controller),
+      body: myBody(_controller, context),
     );
   }
 }
 
-Column myBody(VideoPlayerController controller) {
+Column myBody(VideoPlayerController controller, BuildContext context) {
   return Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       firstBody(controller),
+      const SizedBox(height: 10),
+      const Divider(
+        thickness: 1,
+        indent: 40,
+        endIndent: 10,
+      ),
+      const SizedBox(height: 10),
+      secondBody(),
+      // const SizedBox(height: 10),
+      thirdBody(context),
     ],
   );
 }
@@ -63,7 +95,6 @@ Stack firstBody(VideoPlayerController controller) {
         ),
       ),
       Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "A 5v5 character-based tactical shooter",
@@ -84,6 +115,69 @@ Stack firstBody(VideoPlayerController controller) {
           myButton().centered(),
         ],
       )
+    ],
+  );
+}
+
+Widget secondBody() {
+  return Stack(
+    children: [
+      Container(
+        height: 20,
+        width: 45,
+        color: const Color(0xff181414),
+      ).pOnly(left: 100),
+      RichText(
+        text: const TextSpan(
+          text: "LATEST NEWS",
+          style: TextStyle(
+            fontFamily: 'zuume',
+            fontWeight: FontWeight.bold,
+            fontSize: 36.0,
+            color: Color(0xffff4655),
+            letterSpacing: 0.5,
+          ),
+        ),
+      ).pOnly(left: 30),
+      const Divider(
+        indent: 20,
+        endIndent: 200,
+      ).pOnly(top: 30, left: 30, right: 30),
+    ],
+  );
+}
+
+Widget thirdBody(BuildContext context) {
+  return Stack(
+    children: [
+      Container(
+        width: MediaQuery.of(context).size.width,
+        height: 250,
+        color: const Color(0xff181414),
+      ),
+      SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: 200,
+        child: Visibility(
+          visible: isLoaded,
+          replacement: const Center(
+            child: CircularProgressIndicator(),
+          ),
+          child: ListView.builder(
+            itemCount: data == null ? 0 : data?.length,
+            itemBuilder: (context, index) {
+              return Container(
+                width: 300,
+                child: Card(
+                  child: Text(data![index]['title']),
+                ),
+              );
+            },
+            scrollDirection: Axis.horizontal,
+            shrinkWrap: true,
+          ),
+        ),
+      ),
     ],
   );
 }

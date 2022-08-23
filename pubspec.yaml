@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   velocity_x: ^3.5.1
   video_player: ^2.4.6
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +89,9 @@ flutter:
       - family: europa
         fonts:
           - asset: assets/fonts/Europa Mittelschrift.ttf
+      - family: zuume
+        fonts:
+          - asset: assets/fonts/Zuume Regular.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

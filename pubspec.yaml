@@ -37,6 +37,7 @@ dependencies:
   velocity_x: ^3.5.1
   video_player: ^2.4.6
   http: ^0.13.5
+  url_launcher: ^6.1.5
 
 dev_dependencies:
   flutter_test:

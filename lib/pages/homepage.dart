@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:video_player/video_player.dart';
 import 'package:http/http.dart' as http;
@@ -152,12 +153,12 @@ Widget thirdBody(BuildContext context) {
     children: [
       Container(
         width: MediaQuery.of(context).size.width,
-        height: 250,
-        color: const Color(0xff181414),
+        height: 210,
+        color: const Color(0xff201414),
       ),
       SizedBox(
         width: MediaQuery.of(context).size.width,
-        height: 200,
+        height: 322,
         child: Visibility(
           visible: isLoaded,
           replacement: const Center(
@@ -166,10 +167,60 @@ Widget thirdBody(BuildContext context) {
           child: ListView.builder(
             itemCount: data == null ? 0 : data?.length,
             itemBuilder: (context, index) {
-              return Container(
+              return SizedBox(
                 width: 300,
-                child: Card(
-                  child: Text(data![index]['title']),
+                child: GestureDetector(
+                  onTap: () {
+                    launchURL(data![index]['link']);
+                  },
+                  child: Card(
+                    elevation: 6.0,
+                    color: const Color(0xff181414),
+                    clipBehavior: Clip.antiAlias,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.network(
+                            data![index]['image'],
+                            fit: BoxFit.cover,
+                          ),
+                          Text(
+                            data![index]['date'].toString().toUpperCase(),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                            style: const TextStyle(
+                                color: Colors.white38, fontFamily: 'couture'),
+                          ).pOnly(top: 10, left: 10, right: 10),
+                          // const SizedBox(height: 8.0),
+                          Text(
+                            data![index]['title'].toString().toUpperCase(),
+                            overflow: TextOverflow.ellipsis,
+                            style: const TextStyle(
+                                color: Colors.white, fontFamily: 'couture'),
+                          ).pOnly(top: 10, left: 10, right: 10),
+                          Text(
+                            data![index]['desc'],
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            style: const TextStyle(color: Colors.white70),
+                          ).pOnly(left: 10, right: 10),
+                          TextButton(
+                                  onPressed: () {
+                                    launchURL(data![index]['link']);
+                                  },
+                                  child: const Text("LEARN MORE",
+                                      style: TextStyle(
+                                          color: Colors.white38,
+                                          fontStyle: FontStyle.italic)))
+                              .pOnly(left: 160, right: 10),
+                        ],
+                      ),
+                    ),
+                  ).pOnly(top: 10, left: 5, right: 5),
                 ),
               );
             },
@@ -243,4 +294,9 @@ AppBar myAppBar() {
     backgroundColor: const Color(0xff181414),
     // elevation: 0.0,
   );
+}
+
+launchURL(String url) async {
+  // ignore: deprecated_member_use
+  await launch(url, forceWebView: true, enableJavaScript: true);
 }

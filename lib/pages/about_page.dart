@@ -109,6 +109,7 @@ Widget buildContent(BuildContext context) {
         const Divider(
           indent: 12,
           endIndent: 12,
+          color: Colors.white30,
         ),
         const SizedBox(height: 8),
         Column(
@@ -124,6 +125,7 @@ Widget buildContent(BuildContext context) {
             const Divider(
               indent: 0,
               endIndent: 253,
+              color: Colors.white30,
             ),
             "The App is developed by Vaibhav Prajapati.\n\nVaibhav Prajapati is a prodigy pursuing his B.Tech/B.E. degree from Indian Institute Of Information & Technology, Sricity.\n\nThis app is developed using Flutter with Dart, and may be unstable as it is only the pre-release version of the stable app."
                 .text

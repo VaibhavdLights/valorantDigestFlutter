@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_db/widgets/appbar.dart';
 import 'package:valorant_db/widgets/drawer.dart';
 import 'package:valorant_db/widgets/firstbody.dart';
 import 'package:valorant_db/widgets/secondbody.dart';
@@ -42,39 +43,5 @@ Column myBody() {
       // const SizedBox(height: 10),
       ThirdBody(),
     ],
-  );
-}
-
-AppBar myAppBar() {
-  return AppBar(
-    titleSpacing: 0.0,
-    title: Row(
-      children: [
-        Image.asset(
-          "assets/images/valo-logo.png",
-          fit: BoxFit.contain,
-          height: 24.0,
-        ),
-        const SizedBox(width: 10.0),
-        RichText(
-            text: TextSpan(
-                text: "Valorant ",
-                style: const TextStyle(
-                  fontSize: 22.0,
-                  fontFamily: 'valorant',
-                ),
-                children: <TextSpan>[
-              TextSpan(
-                text: "Digest",
-                style: TextStyle(
-                  fontWeight: FontWeight.w100,
-                  color: Colors.grey[400],
-                ),
-              )
-            ])),
-      ],
-    ),
-    backgroundColor: const Color(0xff181414),
-    // elevation: 0.0,
   );
 }

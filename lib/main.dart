@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:valorant_db/pages/about_page.dart';
+import 'package:valorant_db/pages/learn_page.dart';
 import 'pages/homepage.dart';
 
 void main() {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/home": (context) => const HomePage(),
         "/about": (context) => const AboutPage(),
+        "/learn": (context) => const LearnPage(),
       },
     );
   }

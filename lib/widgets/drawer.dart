@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:valorant_db/pages/about_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -46,7 +45,9 @@ class MyDrawer extends StatelessWidget {
               style: ButtonStyle(
                   overlayColor: MaterialStateColor.resolveWith(
                       (states) => Colors.white10)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/learn");
+              },
               child: const Text(
                 "LEARN",
                 style: TextStyle(color: Colors.white, fontFamily: 'couture'),

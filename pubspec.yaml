@@ -38,6 +38,7 @@ dependencies:
   video_player: ^2.4.6
   http: ^0.13.5
   url_launcher: ^6.1.5
+  font_awesome_flutter: ^10.1.0
 
 dev_dependencies:
   flutter_test:

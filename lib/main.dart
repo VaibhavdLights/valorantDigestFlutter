@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_db/pages/about_page.dart';
 import 'pages/homepage.dart';
 
 void main() {
@@ -10,9 +11,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
+      routes: {
+        "/home": (context) => const HomePage(),
+        "/about": (context) => const AboutPage(),
+      },
     );
   }
 }

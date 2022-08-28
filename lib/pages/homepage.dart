@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:valorant_db/widgets/appbar.dart';
-import 'package:valorant_db/widgets/drawer.dart';
-import 'package:valorant_db/widgets/firstbody.dart';
-import 'package:valorant_db/widgets/secondbody.dart';
-import 'package:valorant_db/widgets/thirdbody.dart';
+import 'package:valorant_db/widgets/homepage_widgets/drawer.dart';
+import 'package:valorant_db/widgets/homepage_widgets/firstbody.dart';
+import 'package:valorant_db/widgets/homepage_widgets/secondbody.dart';
+import 'package:valorant_db/widgets/homepage_widgets/thirdbody.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

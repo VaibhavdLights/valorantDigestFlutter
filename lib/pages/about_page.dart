@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:valorant_db/widgets/appbar.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AboutPage extends StatelessWidget {
@@ -9,13 +10,8 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff181414),
-      appBar: AppBar(
-        titleSpacing: 0,
-        title: "About".text.semiBold.xl2.fontFamily('valorant').make(),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
+      backgroundColor: const Color(0xffece8e1),
+      appBar: myAppBar(),
       body: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -59,7 +55,7 @@ Widget buildCoverImage() {
 Widget buildProfileImage(BuildContext context) {
   return const CircleAvatar(
     radius: 120 / 2,
-    backgroundColor: Color(0xff181414),
+    backgroundColor: Color(0xffece8e1),
     child: CircleAvatar(
       backgroundImage: AssetImage("assets/images/profile.png"),
       radius: 106 / 2,
@@ -79,7 +75,7 @@ Widget buildContent(BuildContext context) {
                 .fontFamily('couture')
                 .bold
                 .size(24)
-                .color(Colors.white)
+                .color(Colors.black)
                 .make(),
             "Electronics Undergrad, IIIT Sricity"
                 .text
@@ -109,7 +105,7 @@ Widget buildContent(BuildContext context) {
         const Divider(
           indent: 12,
           endIndent: 12,
-          color: Colors.white30,
+          color: Colors.black38,
         ),
         const SizedBox(height: 8),
         Column(
@@ -120,17 +116,17 @@ Widget buildContent(BuildContext context) {
                 .bold
                 .size(24)
                 .fontFamily('couture')
-                .color(Colors.white)
+                .color(Colors.black)
                 .make(),
             const Divider(
               indent: 0,
               endIndent: 253,
-              color: Colors.white30,
+              color: Colors.black38,
             ),
             "The App is developed by Vaibhav Prajapati.\n\nVaibhav Prajapati is a prodigy pursuing his B.Tech/B.E. degree from Indian Institute Of Information & Technology, Sricity.\n\nThis app is developed using Flutter with Dart, and may be unstable as it is only the pre-release version of the stable app."
                 .text
                 .fontFamily('europa')
-                .color(Colors.white)
+                .color(Colors.black)
                 .xl
                 .make(),
             "\nTHANK YOU FOR DOWNLOADING".text.color(Colors.grey).make(),
@@ -144,8 +140,8 @@ Widget buildContent(BuildContext context) {
 Widget buildSocial(IconData icon, var url, BuildContext context) {
   return CircleAvatar(
     radius: 24,
-    backgroundColor: Colors.white,
-    foregroundColor: const Color(0xff181414),
+    backgroundColor: Colors.black,
+    foregroundColor: const Color(0xffece8e1),
     child: Material(
       shape: const CircleBorder(),
       clipBehavior: Clip.hardEdge,

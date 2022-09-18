@@ -5,4 +5,5 @@ class MyRoutes {
   static String gameModeRoute = "/gamemode";
   static String agentsRoute = "/agents";
   static String agentsDetailRoute = "/agentsDetail";
+  static String mapsRoute = "/maps";
 }

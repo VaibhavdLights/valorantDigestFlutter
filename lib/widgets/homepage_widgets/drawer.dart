@@ -73,7 +73,9 @@ class MyDrawer extends StatelessWidget {
               style: ButtonStyle(
                   overlayColor: MaterialStateColor.resolveWith(
                       (states) => Colors.white10)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/maps");
+              },
               child: const Text(
                 "MAPS",
                 style: TextStyle(color: Colors.white, fontFamily: 'couture'),

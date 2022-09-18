@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class AgentsBody extends StatefulWidget {
@@ -71,6 +72,10 @@ class _AgentsBodyState extends State<AgentsBody> {
             const SizedBox(
               height: 28,
             ),
+            yourAgentsButton(),
+            const SizedBox(
+              height: 28,
+            ),
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, "/agentsDetail");
@@ -82,4 +87,39 @@ class _AgentsBodyState extends State<AgentsBody> {
       ],
     );
   }
+}
+
+ElevatedButton yourAgentsButton() {
+  return ElevatedButton(
+    onPressed: () {
+      launchURL("https://playvalorant.com/en-gb/agents/");
+    },
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
+    child: Ink(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: const Color(0xfffb4454)),
+        child: Container(
+          width: 200,
+          height: 55,
+          alignment: Alignment.center,
+          child: const Text(
+            'YOUR AGENTS',
+            style: TextStyle(
+              fontSize: 16,
+              fontFamily: 'couture',
+            ),
+          ),
+        )),
+  );
+}
+
+launchURL(String url) async {
+  // ignore: deprecated_member_use
+  await launch(url, forceWebView: true, enableJavaScript: true);
 }

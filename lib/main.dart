@@ -3,6 +3,7 @@ import 'package:valorant_db/pages/about_page.dart';
 import 'package:valorant_db/pages/agents_page.dart';
 import 'package:valorant_db/pages/learn_page.dart';
 import 'package:valorant_db/pages/maps_page.dart';
+import 'package:valorant_db/pages/weapons_page.dart';
 import 'package:valorant_db/widgets/agentspage_widgets/agents_detail.dart';
 import 'package:valorant_db/widgets/learnpage_widgets/gamemodes.dart';
 import 'pages/homepage.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         "/agents": (context) => const AgentsPage(),
         "/agentsDetail": (context) => const AgentsSelect(),
         "/maps": (context) => const MapsPage(),
+        "/weapons": (context) => const WeaponsPage(),
       },
     );
   }

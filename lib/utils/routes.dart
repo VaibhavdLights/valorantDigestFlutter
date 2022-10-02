@@ -6,4 +6,5 @@ class MyRoutes {
   static String agentsRoute = "/agents";
   static String agentsDetailRoute = "/agentsDetail";
   static String mapsRoute = "/maps";
+  static String weaponsRoute = "/weapons";
 }

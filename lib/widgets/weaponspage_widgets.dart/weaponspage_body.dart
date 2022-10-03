@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -47,6 +46,10 @@ class _WeaponsBodyState extends State<WeaponsBody> {
     return "Success";
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+  }
   // _WeaponsBodyState() {
   //   _selectedValue = weapons[0].displayName;
   // }
@@ -210,6 +213,7 @@ class _WeaponsBodyState extends State<WeaponsBody> {
                     ],
                   ),
                   RichText(
+                    textAlign: TextAlign.justify,
                     text: const TextSpan(
                         text: "Riot’s five-vs-five tactical shooter has a ",
                         style: TextStyle(

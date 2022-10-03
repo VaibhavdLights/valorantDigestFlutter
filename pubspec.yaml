@@ -42,6 +42,9 @@ dependencies:
   dropdown_button2: ^1.8.2
   shadow: ^1.5.0
   simple_gradient_text: ^1.2.4
+  just_audio: ^0.9.29
+  just_audio_windows: ^0.1.0
+  audioplayers: ^1.1.0
 
 dev_dependencies:
   flutter_test:

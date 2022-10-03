@@ -4,5 +4,6 @@
         "xstring": "cpp",
         "xiosbase": "cpp",
         "xlocale": "cpp"
-    }
+    },
+    "java.configuration.updateBuildConfiguration": "disabled"
 }

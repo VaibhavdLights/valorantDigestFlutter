@@ -14,7 +14,7 @@ class _MapsPageState extends State<MapsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(),
-      body: const MapsBody(),
+      body: const SingleChildScrollView(child: const MapsBody()),
       backgroundColor: const Color(0xffece8e1),
     );
   }

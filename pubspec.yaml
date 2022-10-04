@@ -45,6 +45,8 @@ dependencies:
   just_audio: ^0.9.29
   just_audio_windows: ^0.1.0
   audioplayers: ^1.1.0
+  auto_size_text: ^3.0.0
+  webview_flutter: ^3.0.4
 
 dev_dependencies:
   flutter_test:

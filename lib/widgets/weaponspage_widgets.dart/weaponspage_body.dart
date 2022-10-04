@@ -203,7 +203,7 @@ class _WeaponsBodyState extends State<WeaponsBody> {
                       //   height: 34,
                       // ),
                       Container(
-                        height: 120,
+                        height: 100,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(14),
@@ -212,29 +212,27 @@ class _WeaponsBodyState extends State<WeaponsBody> {
                       ),
                     ],
                   ),
-                  RichText(
-                    textAlign: TextAlign.justify,
-                    text: const TextSpan(
-                        text: "Riot’s five-vs-five tactical shooter has a ",
+                  FittedBox(
+                    fit: BoxFit.contain,
+                    child: SizedBox(
+                      height: 110,
+                      width: MediaQuery.of(context).size.width,
+                      child: const Text(
+                        "Riot’s five-vs-five tactical shooter has a diverse arsenal of weapons to encourage constant action and jam-jacked, nail-biting, adrenaline-pumping gameplay.",
                         style: TextStyle(
-                          fontFamily: 'europa',
-                          fontSize: 20,
-                          color: Colors.grey,
-                        ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text:
-                                "diverse arsenal of weapons to encourage constant action and jam-jacked, nail-biting, adrenaline-pumping gameplay.",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          TextSpan(
-                            text: "\n\nHit a headshot and your enemy is dead.",
-                            style: TextStyle(color: Color(0xff181414)),
-                          )
-                        ]),
-                  ).p(10),
+                            color: Colors.grey,
+                            fontSize: 17,
+                            fontFamily: 'europa'),
+                        textAlign: TextAlign.justify,
+                      ).p(10),
+                    ),
+                  ),
                 ],
               ),
+              const Text(
+                "Hit a headshot and your enemy is dead.",
+                style: TextStyle(fontFamily: 'europa', fontSize: 18),
+              ).p(10),
             ],
           ),
         ),

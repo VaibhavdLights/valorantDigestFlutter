@@ -13,8 +13,11 @@ class _AgentsPageState extends State<AgentsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: myAppBar(),
-      body: const AgentsBody(),
+      body: const SingleChildScrollView(
+        child: AgentsBody(),
+      ),
       backgroundColor: const Color(0xffece8e1),
     );
   }

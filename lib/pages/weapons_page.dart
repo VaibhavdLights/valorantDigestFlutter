@@ -14,7 +14,7 @@ class _WeaponsPageState extends State<WeaponsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myAppBar(),
-      body: const WeaponsBody(),
+      body: const SingleChildScrollView(child: WeaponsBody()),
       backgroundColor: const Color(0xffece8e1),
     );
   }

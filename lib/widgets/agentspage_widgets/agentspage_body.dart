@@ -112,264 +112,288 @@ class _AgentsBodyState extends State<AgentsBody> {
         const SizedBox(
           height: 16,
         ),
-        SizedBox(
-          height: 300,
-          width: MediaQuery.of(context).size.width - 40,
-          child: GestureDetector(
-            onDoubleTap: () async {
-              final audioPlayer = AudioPlayer();
-              await audioPlayer.play(UrlSource(fn6(_selectedValue!, agents)));
-            },
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Image.network(fn1(_selectedValue!, agents)),
-                Image.network(fn2(_selectedValue!, agents)),
-              ],
-            ),
-          ),
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              _selectedValue!,
-              style: const TextStyle(
-                  fontFamily: 'couture',
-                  fontSize: 18,
-                  decoration: TextDecoration.underline),
-            ),
-            Text(
-              fn3(_selectedValue!, agents),
-              style: const TextStyle(
-                  fontFamily: 'europa',
-                  color: Colors.grey,
-                  decoration: TextDecoration.underline),
-            ),
-            const SizedBox(
-              height: 2,
-            ),
-            Text(fn4(_selectedValue!, agents),
-                textAlign: TextAlign.justify,
-                style:
-                    const TextStyle(fontFamily: 'europa', color: Colors.grey)),
-            const SizedBox(
-              height: 6,
-            ),
-            SizedBox(
-              height: 100,
-              width: MediaQuery.of(context).size.width - 40,
-              child: Column(
+        Visibility(
+          visible: isLoaded,
+          child: Column(
+            children: [
+              Column(
                 children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: (MediaQuery.of(context).size.width - 40) / 2.0,
-                        child: GestureDetector(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  backgroundColor: const Color(0xffece8e1),
-                                  title: Text(
-                                    fn5b(_selectedValue!, agents, 0),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'couture'),
-                                  ),
-                                  content: Text(
-                                    fn5c(_selectedValue!, agents, 0),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'europa'),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                          child: Card(
-                            color: const Color(0xff181414),
-                            child: Row(
-                              children: [
-                                Image.network(fn5a(_selectedValue!, agents, 0))
-                                    .p(5),
-                                SizedBox(
-                                  width: 110,
-                                  child: Text(
-                                    fn5b(_selectedValue!, agents, 0),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: 'europa',
-                                        fontSize: 14),
-                                  ).pOnly(left: 6),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                  SizedBox(
+                    height: 300,
+                    width: MediaQuery.of(context).size.width - 40,
+                    child: GestureDetector(
+                      onDoubleTap: () async {
+                        final audioPlayer = AudioPlayer();
+                        await audioPlayer
+                            .play(UrlSource(fn6(_selectedValue!, agents)));
+                      },
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Image.network(fn1(_selectedValue!, agents)),
+                          Image.network(fn2(_selectedValue!, agents)),
+                        ],
                       ),
-                      SizedBox(
-                        height: 50,
-                        width: (MediaQuery.of(context).size.width - 40) / 2.0,
-                        child: GestureDetector(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  backgroundColor: const Color(0xffece8e1),
-                                  title: Text(
-                                    fn5b(_selectedValue!, agents, 1),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'couture'),
-                                  ),
-                                  content: Text(
-                                    fn5c(_selectedValue!, agents, 1),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'europa'),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                          child: Card(
-                            color: const Color(0xff181414),
-                            child: Row(
-                              children: [
-                                Image.network(fn5a(_selectedValue!, agents, 1))
-                                    .p(5),
-                                SizedBox(
-                                  width: 110,
-                                  child: Text(
-                                    fn5b(_selectedValue!, agents, 1),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: 'europa',
-                                        fontSize: 14),
-                                  ).pOnly(left: 6),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: (MediaQuery.of(context).size.width - 40) / 2.0,
-                        child: GestureDetector(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  backgroundColor: const Color(0xffece8e1),
-                                  title: Text(
-                                    fn5b(_selectedValue!, agents, 2),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'couture'),
-                                  ),
-                                  content: Text(
-                                    fn5c(_selectedValue!, agents, 2),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'europa'),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                          child: Card(
-                            color: const Color(0xff181414),
-                            child: Row(
-                              children: [
-                                Image.network(fn5a(_selectedValue!, agents, 2))
-                                    .p(5),
-                                SizedBox(
-                                  width: 110,
-                                  child: Text(
-                                    fn5b(_selectedValue!, agents, 2),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: 'europa',
-                                        fontSize: 14),
-                                  ).pOnly(left: 6),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                        width: (MediaQuery.of(context).size.width - 40) / 2.0,
-                        child: GestureDetector(
-                          onTap: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  backgroundColor: const Color(0xffece8e1),
-                                  title: Text(
-                                    fn5b(_selectedValue!, agents, 3),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'couture'),
-                                  ),
-                                  content: Text(
-                                    fn5c(_selectedValue!, agents, 3),
-                                    style: const TextStyle(
-                                        color: Color(0xff181414),
-                                        fontFamily: 'europa'),
-                                  ),
-                                );
-                              },
-                            );
-                          },
-                          child: Card(
-                            color: const Color(0xff181414),
-                            child: Row(
-                              children: [
-                                Image.network(fn5a(_selectedValue!, agents, 3))
-                                    .p(5),
-                                SizedBox(
-                                  width: 110,
-                                  child: Text(
-                                    fn5b(_selectedValue!, agents, 3),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: 'europa',
-                                        fontSize: 14),
-                                  ).pOnly(left: 6),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ],
               ),
-            ),
-          ],
-        )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    _selectedValue!,
+                    style: const TextStyle(
+                        fontFamily: 'couture',
+                        fontSize: 18,
+                        decoration: TextDecoration.underline),
+                  ),
+                  Text(
+                    fn3(_selectedValue!, agents),
+                    style: const TextStyle(
+                        fontFamily: 'europa',
+                        color: Colors.grey,
+                        decoration: TextDecoration.underline),
+                  ),
+                  const SizedBox(
+                    height: 2,
+                  ),
+                  Text(fn4(_selectedValue!, agents),
+                      textAlign: TextAlign.justify,
+                      style: const TextStyle(
+                          fontFamily: 'europa', color: Colors.grey)),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  SizedBox(
+                    height: 100,
+                    width: MediaQuery.of(context).size.width - 40,
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: 50,
+                              width: (MediaQuery.of(context).size.width - 40) /
+                                  2.0,
+                              child: GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        backgroundColor:
+                                            const Color(0xffece8e1),
+                                        title: Text(
+                                          fn5b(_selectedValue!, agents, 0),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'couture'),
+                                        ),
+                                        content: Text(
+                                          fn5c(_selectedValue!, agents, 0),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'europa'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  color: const Color(0xff181414),
+                                  child: Row(
+                                    children: [
+                                      Image.network(
+                                              fn5a(_selectedValue!, agents, 0))
+                                          .p(5),
+                                      SizedBox(
+                                        width: 110,
+                                        child: Text(
+                                          fn5b(_selectedValue!, agents, 0),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'europa',
+                                              fontSize: 14),
+                                        ).pOnly(left: 6),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              width: (MediaQuery.of(context).size.width - 40) /
+                                  2.0,
+                              child: GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        backgroundColor:
+                                            const Color(0xffece8e1),
+                                        title: Text(
+                                          fn5b(_selectedValue!, agents, 1),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'couture'),
+                                        ),
+                                        content: Text(
+                                          fn5c(_selectedValue!, agents, 1),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'europa'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  color: const Color(0xff181414),
+                                  child: Row(
+                                    children: [
+                                      Image.network(
+                                              fn5a(_selectedValue!, agents, 1))
+                                          .p(5),
+                                      SizedBox(
+                                        width: 110,
+                                        child: Text(
+                                          fn5b(_selectedValue!, agents, 1),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'europa',
+                                              fontSize: 14),
+                                        ).pOnly(left: 6),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              height: 50,
+                              width: (MediaQuery.of(context).size.width - 40) /
+                                  2.0,
+                              child: GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        backgroundColor:
+                                            const Color(0xffece8e1),
+                                        title: Text(
+                                          fn5b(_selectedValue!, agents, 2),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'couture'),
+                                        ),
+                                        content: Text(
+                                          fn5c(_selectedValue!, agents, 2),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'europa'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  color: const Color(0xff181414),
+                                  child: Row(
+                                    children: [
+                                      Image.network(
+                                              fn5a(_selectedValue!, agents, 2))
+                                          .p(5),
+                                      SizedBox(
+                                        width: 110,
+                                        child: Text(
+                                          fn5b(_selectedValue!, agents, 2),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'europa',
+                                              fontSize: 14),
+                                        ).pOnly(left: 6),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 50,
+                              width: (MediaQuery.of(context).size.width - 40) /
+                                  2.0,
+                              child: GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        backgroundColor:
+                                            const Color(0xffece8e1),
+                                        title: Text(
+                                          fn5b(_selectedValue!, agents, 3),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'couture'),
+                                        ),
+                                        content: Text(
+                                          fn5c(_selectedValue!, agents, 3),
+                                          style: const TextStyle(
+                                              color: Color(0xff181414),
+                                              fontFamily: 'europa'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Card(
+                                  color: const Color(0xff181414),
+                                  child: Row(
+                                    children: [
+                                      Image.network(
+                                              fn5a(_selectedValue!, agents, 3))
+                                          .p(5),
+                                      SizedBox(
+                                        width: 110,
+                                        child: Text(
+                                          fn5b(_selectedValue!, agents, 3),
+                                          overflow: TextOverflow.ellipsis,
+                                          maxLines: 2,
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'europa',
+                                              fontSize: 14),
+                                        ).pOnly(left: 6),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ],
     ).pOnly(left: 20, right: 20);
   }

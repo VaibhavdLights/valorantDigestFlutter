@@ -44,7 +44,7 @@ class _ThirdBodyState extends State<ThirdBody> {
         ),
         SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height - 560,
+          height: 312,
           child: Visibility(
             visible: isLoaded,
             replacement: const Center(

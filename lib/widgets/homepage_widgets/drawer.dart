@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:valorant_db/my_webview.dart';
+import 'package:valorant_db/widgets/appbar.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -46,7 +48,12 @@ class MyDrawer extends StatelessWidget {
                   overlayColor: MaterialStateColor.resolveWith(
                       (states) => Colors.white10)),
               onPressed: () {
-                Navigator.pushNamed(context, "/learn");
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MyWebView(
+                      title: "LEARN",
+                      selectedUrl:
+                          "https://playvalorant.com/en-us/news/announcements/beginners-guide/"),
+                ));
               },
               child: const Text(
                 "LEARN",

@@ -5,6 +5,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:http/http.dart' as http;
 
+import '../../my_webview.dart';
+
 class MapsBody extends StatefulWidget {
   const MapsBody({Key? key}) : super(key: key);
 
@@ -109,7 +111,13 @@ class _MapsBodyState extends State<MapsBody> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      launchURL("https://playvalorant.com/en-us/arsenal/");
+                      // launchURL("https://playvalorant.com/en-us/arsenal/");
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) => MyWebView(
+                      //       title: "MAPS",
+                      //       selectedUrl:
+                      //           "https://playvalorant.com/en-us/arsenal/"),
+                      // ));
                     },
                     child: Visibility(
                       visible: isLoaded,
@@ -126,8 +134,12 @@ class _MapsBodyState extends State<MapsBody> {
                             width: MediaQuery.of(context).size.width - 20,
                             child: GestureDetector(
                                 onTap: () {
-                                  launchURL(
-                                      "https://playvalorant.com/en-us/maps/");
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) => MyWebView(
+                                        title: "LEARN",
+                                        selectedUrl:
+                                            "https://playvalorant.com/en-us/maps/"),
+                                  ));
                                 },
                                 child: Card(
                                   elevation: 6.0,

@@ -14,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   // ignore: unused_field
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,25 @@ class _HomePageState extends State<HomePage> {
       appBar: myAppBar(),
       body: SingleChildScrollView(child: myBody()),
       drawer: const MyDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xffece8e1),
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        onTap: (value) {
+          setState(() {
+            _currentIndex = value;
+            //call function
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(label: "Profile", icon: Icon(Icons.person)),
+          // BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
+          BottomNavigationBarItem(
+              label: "Shorts", icon: Icon(Icons.play_arrow)),
+          // BottomNavigationBarItem(label: "Home", icon: Icon(Icons.home)),
+          BottomNavigationBarItem(label: "Logout", icon: Icon(Icons.logout)),
+        ],
+      ),
     );
   }
 }

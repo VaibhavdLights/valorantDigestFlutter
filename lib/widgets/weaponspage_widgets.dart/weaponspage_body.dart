@@ -7,6 +7,8 @@ import 'package:http/http.dart' as http;
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:shadow/shadow.dart';
 
+import '../../my_webview.dart';
+
 class WeaponsBody extends StatefulWidget {
   const WeaponsBody({Key? key}) : super(key: key);
 
@@ -124,7 +126,12 @@ class _WeaponsBodyState extends State<WeaponsBody> {
                 width: MediaQuery.of(context).size.width - 20,
                 child: GestureDetector(
                   onTap: () {
-                    launchURL("https://playvalorant.com/en-us/arsenal/");
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MyWebView(
+                          title: "WEAPONS",
+                          selectedUrl:
+                              "https://playvalorant.com/en-us/arsenal/"),
+                    ));
                   },
                   child: Card(
                     shape: RoundedRectangleBorder(

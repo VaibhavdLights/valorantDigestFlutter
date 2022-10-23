@@ -108,7 +108,9 @@ class MyDrawer extends StatelessWidget {
               style: ButtonStyle(
                   overlayColor: MaterialStateColor.resolveWith(
                       (states) => Colors.white10)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, "/skins");
+              },
               child: const Text(
                 "SKINS",
                 style: TextStyle(color: Colors.white, fontFamily: 'couture'),
@@ -120,7 +122,14 @@ class MyDrawer extends StatelessWidget {
               style: ButtonStyle(
                   overlayColor: MaterialStateColor.resolveWith(
                       (states) => Colors.white10)),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => MyWebView(
+                    title: "LEARN",
+                    selectedUrl: "https://valorantesports.com/",
+                  ),
+                ));
+              },
               child: const Text(
                 "ESPORTS",
                 style: TextStyle(color: Colors.white, fontFamily: 'couture'),
